@@ -1,0 +1,56 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+    <script>
+       var page={{page}};
+       var cdata={{cdata}};
+       var maxi={{maxi}};
+
+       function newpage(angka){
+         page=page+angka;
+         document.pf1.newpage.value=page;
+         document.getElementById("pf1").submit();
+       }
+    </script>
+
+    <<h2 align="center">HASIL TEST</h2>
+    <h3 align="center">{{keterangan}} - kode {{kode}} - {{namakat}}</h3>
+
+    <table border="1" align="center">
+        <tr><td>NIS</td><td>NAMA</td><td>NPSN</td><td>NILAI</td></tr>
+        {% for datum in data %}
+        <tr>
+            <td><input type="submit" name="nis" value="{{datum.nis}}" /></td>
+            <td>{{datum.name}}</td>
+            <td>{{datum.npsn}}</td>
+            <td>{{datum.nilai}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </form>
+    <div align="center">
+      <script>
+        if (page == 0){
+          document.write('<button disabled>PREV</button>');
+        }else{
+          document.write('<button onclick="newpage(-1)">PREV</button>');
+        }
+        document.write(' halaman '+ (page + 1));
+        if (((page+1) * maxi) >= cdata){
+          document.write('<button disabled>NEXT</button>');
+        }else{
+          document.write('<button onclick="newpage(1)">NEXT</button>');
+        }
+      </script>
+    </div>
+    <form method="POST" action="/list-hasil-newpage" id="pf1" name="pf1">
+      <input type="hidden" name="newpage">
+      <input type="hidden" name="cdata" value="{{cdata}}" />
+      <input type="hidden" name="maxi" value="{{maxi}}" />
+      <input type="hidden" name="kode" value="{{kode}}" />
+      <input type="hidden" name="npsn" value="{{npsn}}" />
+      <input type="hidden" name="kelas" value="{{kelas}}" />
+      <input type="hidden" name="namakat" value="{{namakat}}" />
+      <input type="hidden" name="keterangan" value="{{keterangan}}" />
+    </form>
+{% endblock %}

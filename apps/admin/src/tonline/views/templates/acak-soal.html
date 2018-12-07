@@ -1,0 +1,40 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+    <h4>Status Acak Set Soal Kategori {{namakat}}</h4>
+    <h4>Kode Soal:{{datum.kode}} - {{datum.keterangan}}</h4>
+    <form method="POST" action="/update-acak-proset">
+
+      <div class="row">
+         <div class="col-sm-1">
+           <h5 class="text-right">Status Acak:</h5>
+         </div>
+         <div class="col-sm-2">
+           <div class="form-group">
+              <input type="text" class="form-control" name="acak" value="{{datum.acak}}">
+           </div>
+        </div>
+        <div class="col-sm-9"></div>
+      </div>
+      <div class="row">
+         <div class="col-sm-1">
+           <h5 class="text-right">Pola Acak:</h5>
+         </div>
+         <div class="col-sm-11">
+           <div class="form-group">
+              <input type="text" class="form-control" name="polaacak" value="{{datum.polaacak}}">
+           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+         <div class="col-sm-5">
+           <div class="form-group">
+              <input type="submit" value="UPDATE">
+           </div>
+        </div>
+        <div class="col-sm-5"></div>
+      </div>
+      <input type="hidden" name="kode" value="{{datum.kode}}" />
+</form>
+{% endblock %}

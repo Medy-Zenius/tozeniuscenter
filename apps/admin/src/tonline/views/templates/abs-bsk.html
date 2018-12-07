@@ -1,0 +1,25 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+    <script>
+        vno=1;
+    </script>
+    <h3 align="center">HASIL ABS Distribusi Benar-Salah-Kosong</h3>
+    <h4 align="center">Kategori:{{namakat}}, Proset: {{keterangan}}, Kode Soal: {{kode}}</h4>
+    <h4 align="center">Jumlah Peserta: {{peserta}} orang</h4>
+    <form method="POST" action="/lihat-soal" target="_blank">
+    <table border="1" align="center">
+        <tr><td>No</td><td>BENAR</td><td>SALAH</td><td>KOSONG</td></tr>
+        {% for hsl in hasil %}
+        <tr>
+            <td><script>document.write(vno);</script></td>
+            {% for h in hsl %}
+               <td>{{h}}</td>
+            {% endfor %}
+        </tr>
+        <script>vno+=1</script>
+        {% endfor %}
+    </table>
+    <input type="hidden" name="kode" value="{{kode}}">
+    </form>
+{% endblock %}

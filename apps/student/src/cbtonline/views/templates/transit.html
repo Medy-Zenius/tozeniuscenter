@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script>
+      function kirim(){
+      document.getElementById('pf').submit();
+      }
+    </script>
+  </head>
+
+<body>
+  <form method="POST" id="pf" name="pf" action="/ganti-pw-lupa0">
+    <input type="hidden" name="email" value="{{email}}" />
+    <input type="hidden" name="vcode" value="{{vcode}}" />
+</form>
+<script>
+         kirim();
+</script>
+</body>
+
+</html>
+

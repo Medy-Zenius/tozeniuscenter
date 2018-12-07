@@ -1,0 +1,62 @@
+{% extends "cbtonline/views/templates/basebg.html" %}
+{% block content %}
+  <script>
+  function kirim(){
+  document.pf.pass1.value=document.getElementById('pass1').value;
+  document.pf.pass2.value=document.getElementById('pass2').value;
+  document.getElementById("pf").submit();
+  }
+  </script>
+  <div class="panel panel-default panel-kodesoal h-middle">
+    <div class="panel-body">
+      <div class="row">
+        <div align="center">
+          <div class="text-default">
+            <strong>Password Baru!</strong>
+
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8"><input type="password" class="form-control text-center" id="pass1"  placeholder="PW Baru"></div>
+          <div class="col-sm-2"></div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8"><input type="password" class="form-control text-center" id="pass2"  placeholder="Ketik ulang PW baru"></div>
+          <div class="col-sm-2"></div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6" align="center">
+          <button class="btn btn-bluegreen" onClick="kirim()">KIRIM</button>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" >
+          <div align="center">
+            <span class="label label-danger">{{error}}</span>
+          </div>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+  </div>
+  <form method="POST" action="/ganti-pw-lupa1" name="pf" id="pf">
+    <input type="hidden" name="email" value="{{email}}">
+    <input type="hidden" name="vcode" value="{{vcode}}">
+    <input type="hidden" name="pass1">
+    <input type="hidden" name="pass2">
+  </form>
+{% endblock %}

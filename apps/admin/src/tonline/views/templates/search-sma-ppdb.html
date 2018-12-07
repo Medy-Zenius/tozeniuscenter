@@ -1,0 +1,34 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <h4 class="text-primary">
+          SEARCH SMA!
+        </h4>
+      </div>
+    <form method="POST" action="{{action}}">
+
+      <div class="row">
+         <div class="col-sm-2">
+           <h5 class="text-right">Nama SMA:</h5>
+         </div>
+         <div class="col-sm-5">
+           <div class="form-group">
+              <input type="text" class="form-control" name="nama" />
+           </div>
+        </div>
+        <div class="col-sm-5"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+         <div class="col-sm-5">
+           <div class="form-group">
+              <input type="submit" value="CARI">
+           </div>
+        </div>
+        <div class="col-sm-5"></div>
+      </div>
+   </form>
+</div>
+{% endblock %}

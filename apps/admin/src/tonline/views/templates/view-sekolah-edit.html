@@ -1,0 +1,20 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+    <h2 align="center">DAFTAR SEKOLAH</h2>
+    <h3 align="center">Klik NPSN untuk mengedit sekolah!</h3>
+    <form method="POST" action="/edit-sekolah">
+    <table border="1" align="center">
+        <tr><td>NPSN</td><td>NAMA SEKOLAH</td><td>ALAMAT</td><td>TELPON</td><td>EMAIL</td></tr>
+        {% for datum in data %}
+        <tr>
+            <td><input type="submit" name="npsn" value="{{datum.npsn}}" /></td>
+            <td>{{datum.nama}}</td>
+            <td>{{datum.alamat}}</td>
+            <td>{{datum.telpon}}</td>
+            <td>{{datum.email}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </form>
+{% endblock %}

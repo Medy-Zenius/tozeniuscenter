@@ -1,0 +1,69 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+
+    <div class="container-fluid">
+    <div class="row">
+       <h4>Daftarkan admin</h4>
+    </div>
+    <form method="POST" action="/input-admin">
+
+      <div class="row">
+         <div class="col-sm-2">
+           <h5 class="text-right">ID:</h5>
+         </div>
+         <div class="col-sm-5">
+           <div class="form-group">
+              <input type="text" class="form-control" name="id" placeholder="ID">
+           </div>
+        </div>
+        <div class="col-sm-5"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <h5 class="text-right">Status:</h5>
+        </div>
+        <div class="col-sm-1">
+           <div class="form-group">
+              <select name="status">
+                <option value="1">admin</option>
+                <option value="2">operator</option>
+              </select>
+           </div>
+        </div>
+        <div class="col-sm-9"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <h5 class="text-right">Password:</h5>
+        </div>
+        <div class="col-sm-1">
+           <div class="form-group">
+              <input type="text" class="form-control" name="pass" placeholder="PASSWORD">
+           </div>
+        </div>
+        <div class="col-sm-9"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+           <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="KIRIM" />
+           </div>
+        </div>
+        <div class="col-sm-8"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+           <h5 class="bg-danger text-danger">{{error}}
+        </div>
+        <div class="col-sm-8"></div>
+      </div>
+      </form>
+    </div>
+
+
+
+{% endblock %}

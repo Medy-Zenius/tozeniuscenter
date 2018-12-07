@@ -1,0 +1,29 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+
+    <h2 align="center">HASIL TEST</h2>
+    <h3 align="center">{{keterangan}} - kode {{kode}} - {{namakat}}</h3>
+
+    <table border="1" align="center"  name="hasilTo" id="hasilTo">
+
+        <tr>
+          <td align="center">NIS</td>
+          <td align="center">NAMA</td>
+          <td align="center">NPSN</td>
+          <td align="center">KELAS</td>
+          <td align="center">NILAI</td>
+        </tr>
+
+        {% for datum in data %}
+        <tr>
+            <td>{{datum.nis}}</td>
+            <td>{{datum.name}}</td>
+            <td>{{datum.npsn}}</td>
+            <td>{{datum.kelas}}</td>
+            <td>{{datum.nilai}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

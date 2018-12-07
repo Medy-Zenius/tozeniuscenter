@@ -1,0 +1,92 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+
+    <div class="container">
+      <div class="row">
+        <h4 class="text-primary">
+          TAMBAH SEKOLAH!
+        </h4>
+      </div>
+    <form method="POST" action="/tambah-sekolah">
+
+      <div class="row">
+         <div class="col-sm-2">
+           <h5 class="text-right">npsn:</h5>
+         </div>
+         <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="npsn" placeholder="NPSN" value="{{npsn}}" />
+           </div>
+        </div>
+        <div class="col-sm-7"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <h5 class="text-right">Nama Sekolah:</h5>
+        </div>
+        <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="nama" placeholder="Nama Sekolah" value="{{nama}}" />
+           </div>
+        </div>
+        <div class="col-sm-7"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <h5 class="text-right">Alamat:</h5>
+        </div>
+        <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="{{alamat}}"/>
+           </div>
+        </div>
+        <div class="col-sm-7"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <h5 class="text-right">Telpon/HP:</h5>
+        </div>
+        <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="telpon" placeholder="Telpon" value="{{telpon}}" />
+           </div>
+        </div>
+        <div class="col-sm-7"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <h5 class="text-right">Email:</h5>
+        </div>
+        <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="email" placeholder="Email">
+           </div>
+        </div>
+        <div class="col-sm-7"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+           <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="KIRIM" />
+           </div>
+        </div>
+        <div class="col-sm-8"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+           <h5 class="bg-danger text-danger">{{error}}
+        </div>
+        <div class="col-sm-8"></div>
+      </div>
+      </form>
+    </div>
+
+
+
+{% endblock %}

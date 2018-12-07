@@ -1,0 +1,20 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+<div class="container">
+
+       <h3>Upload File Pendukung Soal HTML</h3>
+
+       <FORM NAME="testform" method="POST" action="/upload-gambar" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="pwdl">Pilih File:</label>
+            <input type="file" name="file" id="file" multiple>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="UPLOAD">
+          </div>
+
+       </FORM>
+
+</div>
+{% endblock %}

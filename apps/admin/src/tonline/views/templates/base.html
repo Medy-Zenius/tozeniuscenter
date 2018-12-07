@@ -1,0 +1,240 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Back Office Zenius CBT</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.theme.css" rel="stylesheet">
+    <script src="jquery/jquery-1.12.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/helper.js"></script> -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript"
+            src="js/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+</head>
+<body>
+{% if user %}
+{% if status = 1 %}
+{% block header %}
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">ADMIN</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/set-dapp">Domain Applikasi</a></li>
+              <li><a href="/set-dimg">Domain Image</a></li>
+              <li><a href="/set-pw-default">Password Default Siswa</a></li>
+              <li><a href="/set-max-row">Baris Data Maksimal</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hasil Tes<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!--<li><a href="/admin-hasil-testB">BANK SET SOAL</a></li>
+              <li><a href="/admin-hasil-testL">SET SOAL GURU</a></li>
+              <li><a href="/admin-paket-ppdb">PAKET PPDB</a></li>-->
+              <li><a href="/hasil-proset">PROSET</a></li>
+              <li><a href="/pilih-paket-ppdb">PAKET PPDB</a></li>
+              <li><a href="/pilih-paket-sbmptn">PAKET PSBMPTN</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Analisis Butir Soal<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">SET SOAL</a></li>
+              <li><a href="/abs-bsk"> - Distribusi Benar-Salah-Kosong</a></li>
+              <li><a href="/abs-tk"> - Tingkat Kesulitan</a></li>
+              <li><a href="/abs-dp"> - Daya Pembeda</a></li>
+              <li><a href="/abs-dk"> - Daya Kecoh</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Simpan ke Excel<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">SET SOAL</a></li>
+              <li><a href="/hasil-test-excel">- Hasil Test</a></li>
+              <li><a href="#">- Analisis butir soal</a></li>
+              <li><a href="/abs-bsk-excel"> -- Distribusi B-S-K</a></li>
+              <li><a href="/abs-tk-excel"> -- Tingkat Kesulitan</a></li>
+              <li><a href="/abs-dp-excel"> -- Daya Pembeda</a></li>
+              <li><a href="/abs-dk-excel"> -- Daya kecoh</a></li>
+              <li><a href="/paket-ppdb-excell">PAKET PPDB SMA</a></li>
+              <li><a href="/paket-sbmptn-excell">PAKET SBMPTN</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Edit Data<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Siswa</a></li>
+              <!--
+              <li><a href="/admin-registrasi-siswa">- Registrasi Siswa</a></li>
+              -->
+              <li><a href="/edit-siswa">- Edit/Hapus Data Siswa</a></li>
+              <!--<li><a href="/delete-siswa">- Hapus Siswa</a></li>-->
+              <li><a href="/input-siswa">- Input Siswa dari CSV file</a></li>
+              <!--<li><a href="#">Pelajaran</a></li>
+              <li><a href="/admin-edit-pelajaran">- Edit Pelajaran</a></li>
+              <li><a href="/admin-tambah-pelajaran">- Tambah Pelajaran</a></li>-->
+              <li><a href="#">Sekolah</a></li>
+              <li><a href="/edit-sekolah">- Edit Sekolah</a></li>
+              <li><a href="/tambah-sekolah">- Tambah Sekolah</a></li>
+              <li><a href="/hitung-ulang-hasil">Hitung Ulang Hasil TEST</a></li>
+              <li><a href="/input-admin">Tambah Admin/Operator</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Simulasi<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">PPDB</a></li>
+              <li><a href="/tambah-paket-ppdb">- Tambah Paket</a></li>
+              <li><a href="/edit-paket-ppdb">- View/Edit/Hapus Paket</a></li>
+              <li><a href="/tambah-sma-ppdb">- Tambah SMA</a></li>
+              <li><a href="/edit-sma-ppdb">- View/Edit/Hapus SMA</a></li>
+              <li><a href="/tambah-daerah-ppdb">- Tambah Daerah</a></li>
+              <li><a href="/edit-daerah-ppdb">- View/Edit Daerah</a></li>
+
+              <li><a href="#">SBMPTN</a></li>
+              <li><a href="/tambah-paket-sbmptn">- Tambah Paket</a></li>
+              <li><a href="/edit-paket-sbmptn">- View/Edit/Hapus Paket</a></li>
+              <!--
+              <li><a href="/admin-tambah-jurusan-sbmptn">- Tambah Jurusan</a></li>
+              <li><a href="/admin-edit-jurusan-sbmptn">- View/Edit/Hapus Jurusan</a></li>
+              -->
+            </ul>
+        </li>
+
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">PROSET<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/daftarkan-proset">Daftarkan Set Soal</a></li>
+              <li><a href="/upload-file">Upload File</a></li>
+              <li><a href="/import-file-zp">Import dari Zenpres</a></li>
+              <li><a href="/upload-gambar">Upload FP HTML</a></li>
+              <li><a href="/edit-kunci">Edit Kunci dan Tautan</a></li>
+              <li><a href="/edit-set-soal">Edit Set Soal</a></li>
+              <li><a href="/lihat-persoal">Lihat Soal per Soal</a></li>
+              <li><a href="/acak-soal">Pengacakan Soal</a></li>
+              <li><a href="/aktif-soal">Status Aktif/Non Aktif</a></li>
+              <li><a href="/justonce">Status Hanya Sekali</a></li>
+            </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/ganti-password">Ganti PW</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% endif %}
+
+{% if status = 2 %}
+{% block header %}
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">ADMIN</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hasil Tes<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <!--<li><a href="/admin-hasil-testB">BANK SET SOAL</a></li>
+              <li><a href="/admin-hasil-testL">SET SOAL GURU</a></li>
+              <li><a href="/admin-paket-ppdb">PAKET PPDB</a></li>-->
+              <li><a href="/hasil-proset">PROSET</a></li>
+              <li><a href="/pilih-paket-ppdb">PAKET PPDB</a></li>
+              <li><a href="/pilih-paket-sbmptn">PAKET PSBMPTN</a></li>
+            </ul>
+        </li>
+
+
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Simpan ke Excel<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">SET SOAL</a></li>
+              <li><a href="/hasil-test-excel">- Hasil Test</a></li>
+              <!--
+              <li><a href="#">- Analisis butir soal</a></li>
+              <li><a href="/admin-abs-excelB"> -- Distribusi B-S-K</a></li>
+              <li><a href="/admin-abs-tk-excelB"> -- Tingkat Kesulitan</a></li>
+              <li><a href="/admin-abs-dp-excelB"> -- Daya Pembeda</a></li>
+              <li><a href="/admin-adk-excelB"> -- Daya kecoh</a></li>
+              -->
+              <li><a href="/paket-ppdb-excell">PAKET PPDB SMA</a></li>
+              <li><a href="/paket-sbmptn-excell">PAKET SBMPTN</a></li>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Edit Data<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Siswa</a></li>
+              <!--
+              <li><a href="/admin-registrasi-siswa">- Registrasi Siswa</a></li>
+              -->
+              <li><a href="/edit-siswa">- Lihat/Edit Data Siswa</a></li>
+              <li><a href="/input-siswa">- Input Siswa dari CSV file</a></li>
+              <!--<li><a href="#">Pelajaran</a></li>
+              <li><a href="/admin-edit-pelajaran">- Edit Pelajaran</a></li>
+              <li><a href="/admin-tambah-pelajaran">- Tambah Pelajaran</a></li>-->
+              <li><a href="#">Sekolah</a></li>
+              <li><a href="/edit-sekolah">- Edit Sekolah</a></li>
+              <li><a href="/tambah-sekolah">- Tambah Sekolah</a></li>
+
+            </ul>
+        </li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/ganti-password">Ganti PW</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+{% endif %}
+
+{% else %}
+    <div>
+     <br>
+    <form method="POST" action="/login">
+         <input type="text" name="id" placeholder="ID" value="{{id}}"/>
+         <input type="password" name="pass" placeholder="password"/>
+         <input type="submit" value="SUBMIT" />
+    </form>
+    </div>
+    <div>
+      <span class="text text-danger">{{error}}</span>
+  </div>
+{% endif %}
+
+</body>
+</html>

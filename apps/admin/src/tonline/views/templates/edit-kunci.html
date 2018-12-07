@@ -1,0 +1,132 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+<script>
+    var kun=[];
+    var jen=[];
+    var upt=[];
+    var jumsoal={{jsoal}};
+    var jumpil='{{jumpil}}';
+
+
+    {% for kn in kunci %}
+        kun.push('{{kn}}');
+    {% endfor %}
+
+    {% for jn in jenis %}
+        jen.push('{{jn}}');
+    {% endfor %}
+
+    {% for ut in upto %}
+        upt.push('{{ut}}');
+    {% endfor %}
+
+    function jenis_change(no){
+      //document.getElementById('test').innerHTML=kun[2];
+      var vj=document.getElementById('sel'+no).value;
+      if(vj=="2"){
+        //document.getElementById('upto'+no).innerHTML='0';
+        document.getElementById('upto'+no).value='0';
+        //document.getElementById('upto'+no).disabled=true;
+      }else{
+        document.getElementById('upto'+no).value=jumpil;
+      }
+    }
+
+    function arr2str(arr){
+      var carr=arr.length;
+      var sarr='';
+      for (i=0;i<carr-1;i++){
+        sarr=sarr + arr[i] + ":";
+      }
+      sarr=sarr + arr[carr-1];
+      return sarr;
+    }
+
+    function kirim(){
+       var kun1=[],jen1=[],upto1=[];
+       var vc='',vj='',vut='';
+       for (i=0;i<{{jsoal}};i++){
+          vc=document.getElementById('jwb' + i).value;
+          if (vc==""){
+           vc="-";
+          }
+          vj=document.getElementById('sel' + i).value;
+          vut=document.getElementById('upto' + i).value;
+          kun1.push(vc);
+          jen1.push(vj);
+          upto1.push(vut);
+       }
+       document.pf.kunci.value=arr2str(kun1);
+       document.pf.jenis.value=jen1;
+       document.pf.upto.value=upto1;
+       document.pf.kode.value={{kode}};
+       document.getElementById("pf").submit();
+    }
+</script>
+<div class="container">
+<div class="row" align="center">
+
+<h4>Lihat/Edit Kunci {{namakat}} - {{kode}}</h4>
+<h3>{{ket}}</h3>
+     <table border="1">
+        <tr><td>No.</td><td>Jenis</td><td>Jpil</td><td>Kunci</td></tr>
+        <script>
+          var cnt='',vkun='',vjen='',vupto='';
+          for(i=0;i<{{jsoal}};i++){
+            document.write('<tr id=bar'+i+'></tr>');
+          }
+
+          for(i=0;i<{{jsoal}};i++){
+                vkun=kun[i];
+                vjen=jen[i];
+                vupto=upt[i];
+                cnt+='<td>'+(i+1)+'</td>';
+
+                cnt+='<td><select onchange=jenis_change('+i+') id=sel'+i+'>';
+                if (vjen=="1"){
+                  cnt+='<option value="1" selected>Pil Ganda</option>';
+                }else{
+                  cnt+='<option value="1">Pil Ganda</option>';
+                }
+                if (vjen=="2"){
+                  cnt+='<option value="2" selected>Isian</option>';
+                }else{
+                  cnt+='<option value="2">Isian</option>';
+                }
+                if (vjen=="3"){
+                  cnt+='<option value="3" selected>Pilihan Jamak</option>';
+                }else{
+                  cnt+='<option value="3">Pilihan Jamak</option>';
+                }
+                cnt+='</select></td>';
+
+                cnt+='<td><input type="text" size="1" maxlength="1" id=upto'+i+' value='+vupto+'></td>';
+
+                if (vkun=="-"){
+                   cnt+='<td><input type="text" id=jwb'+i+'></td>';
+                }else{
+                   cnt+='<td><input type="text"  value="'+vkun+'" id=jwb'+i+'></td>';
+                }
+
+               document.getElementById('bar'+i).innerHTML=cnt;
+               cnt='';
+           }
+
+       </script>
+    </table>
+    <br>
+    <button type="button" class="btn btn-primary" onClick="kirim()">KIRIM</button>
+  <form method="post" action="/simpan-kunci" name="pf" id="pf">
+    <input type="hidden" name="jenis">
+    <input type="hidden" name="upto">
+    <input type="hidden" name="kunci">
+    <input type="hidden" name="kode">
+
+  </form>
+  </div>
+  <div id='test'>
+
+  </div>
+</div>
+{% endblock %}

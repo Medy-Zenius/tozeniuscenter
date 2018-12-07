@@ -1,0 +1,110 @@
+(start-server "3100")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+(cons 1 [2 3 4])
+(map #(cons %1 %2) [1 2 3] [[1 2][3 3][4 4]])
+(map vec ['(1 2) '(2 3)])
+exit
+(start-server "3100")
+(interleave [1 2 3] [4 5 6])
+(partition 2 [1 2 3 4 5 6])
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+(not-any? 5 [1 2 3 4 5])
+(not-any 5 [1 2 3 4 5])
+(not-any #{5} [1 2 3 4 5])
+(not-any? #{5} [1 2 3 4 5])
+(map #(or (= % 4) (= % 5)) [1 2 3 4 5])
+(distinct [5 5 5 5 5])
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+(conj [] "a")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+exit
+(start-server "3100")
+(start-server "4100")
+exit
+(start-server "4100")
+(slurp "./html/coba.html")
+exit
+(start-server "4100")
+exit
+(start-server "4100")
+(start-server "4000")
+exit
+(start-server "4000")
+(use 'tonline.models.updatedb)
+(use 'tonline.models.insertdata)
+(use 'tonline.models.updatedb :reload)
+(read-string "123")
+(str ["a" "b" "c"])
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(str (vec (range 1 21)))
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(repeat 10 "4")
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+exit
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 12)
+exit
+(use 'tonline.models.updatedb :reload)
+(insert-from-tosmp 6)
+(insert-from-tosmp 7)
+(insert-from-tosmp 17)
+(insert-from-tosmp 21)
+(insert-from-tosmp 23)
+(insert-from-tosmp 28)
+(insert-from-tosmp 9)
+(insert-from-tosmp 19)

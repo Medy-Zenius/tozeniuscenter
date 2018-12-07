@@ -1,0 +1,76 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+    <script>
+        function kirim(){
+            document.pf.no.value=document.getElementById('no').value;
+            document.pf.soal.value=document.getElementById('soal').value;
+            document.getElementById("pf").submit();
+        }
+</script>
+
+    <div class="container">
+      <div class="row">
+        <h4 class="text-primary">
+          IMPORT SOAL ZENPRES!<br>
+          Kategori:{{namakat}}, Kode:{{kode}}, Keterangan:{{ket}}
+        </h4>
+      </div>
+
+      <div class="row">
+         <div class="col-sm-2">
+           <h5 class="text-right">Soal Zenpres</h5>
+         </div>
+         <div class="col-sm-8">
+           <div class="form-group">
+              <textarea rows="20" cols="100" id="soal"></textarea>
+           </div>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <h5 class="text-right">Nomer Soal</h5>
+        </div>
+        <div class="col-sm-3">
+           <div class="form-group">
+              <select id="no">
+                 <script>
+                   for (i=1;i<={{jsoal}};i++){
+                     if (i=={{no}}){
+                        document.write('<option value="' + i + '" selected>' + i + '</option>');
+                     }else{
+                        document.write('<option value="' + i + '">' + i + '</option>');
+                     }
+                   }
+                 </script>
+             </select>
+           </div>
+        </div>
+        <div class="col-sm-7"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+           <div class="form-group">
+              <button type="submit" class="btn btn-primary" onClick="kirim()">
+                KIRIM
+             </button>
+           </div>
+        </div>
+        <div class="col-sm-8"></div>
+      </div>
+
+      <form method="POST" action="/import-soal-zp" name="pf" id="pf">
+       <input type="hidden" name="kode" value="{{kode}}" />
+       <input type="hidden" name="kodex" value="{{kodex}}" />
+       <input type="hidden" name="kkode" value="{{kkode}}" />
+       <input type="hidden" name="namakat" value="{{namakat}}" />
+       <input type="hidden" name="ket" value="{{ket}}" />
+       <input type="hidden" name="jsoal" value="{{jsoal}}" />
+       <input type="hidden" name="no" />
+       <input type="hidden" name="soal" />
+      </form>
+    </div>
+{% endblock %}

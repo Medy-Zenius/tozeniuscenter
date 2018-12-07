@@ -1,0 +1,51 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+
+    <div class="container">
+      <form method="POST" action="{{action}}">
+      <div class="row">
+        <h4 class="text-primary">
+          kode:{{kode}} - {{namakat}}<br>
+          Tentukan NPSN dan kelas (kosongkan untuk semua) !
+        </h4>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <h5 class="text-right">NPSN</h5>
+        </div>
+        <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="npsn" />
+           </div>
+        </div>
+        <div class="col-sm-7"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <h5 class="text-right">kelas</h5>
+        </div>
+        <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="kelas" />
+           </div>
+        </div>
+        <div class="col-sm-7"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+           <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="KIRIM" />
+           </div>
+        </div>
+        <div class="col-sm-8"></div>
+      </div>
+      <input type="hidden" name="kode" value="{{kode}}" />
+      <input type="hidden" name="namakat" value="{{namakat}}" />
+    </form>
+    </div>
+
+{% endblock %}

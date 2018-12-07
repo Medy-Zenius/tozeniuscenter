@@ -1,0 +1,52 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+    <script>
+      var vno=1
+    </script>
+    <h4 align="center">HASIL TO SBMPTN {{paket}}</h4>
+    <h4 align="center">NPSN:{{npsn}}</h4>
+    <table border="1" align="center" style="font-size: x-small">
+
+        <tr>
+          <td rowspan="2" align="center">NO</td>
+          <td rowspan="2" align="center">NIS</td>
+          <td rowspan="2" align="center">NAMA</td>
+          <td rowspan="2" align="center">NPSN</td>
+          <td rowspan="2" align="center">KELAS</td>
+          <td align="center" colspan="4">TKPA</td>
+          <td align="center" colspan="4">{{skel}}</td>
+          <td rowspan="2">TOTAL</td>
+       </tr>
+        <tr>
+            <td align="center">B</td>
+            <td align="center">S</td>
+            <td align="center">K</td>
+            <td align="center">NIL</td>
+            <td align="center">B</td>
+            <td align="center">S</td>
+            <td align="center">K</td>
+            <td align="center">NIL</td>
+        </tr>
+        {% for datum in data %}
+        <tr>
+            <td align="center"><script>document.write(vno)</script></td>
+            <td align="center">{{datum.nis}}</td>
+            <td>{{datum.nama}}</td>
+            <td>{{datum.npsn}}</td>
+            <td align="center">{{datum.kelas}}</td>
+            <td align="center">{{datum.Btkpa}}</td>
+            <td align="center">{{datum.Stkpa}}</td>
+            <td align="center">{{datum.Ktkpa}}</td>
+            <td align="right">{{datum.ntkpa}}</td>
+            <td align="center">{{datum.Bipaorips}}</td>
+            <td align="center">{{datum.Sipaorips}}</td>
+            <td align="center">{{datum.Kipaorips}}</td>
+            <td align="rignt">{{datum.nipaorips}}</td>
+            <td align="right">{{datum.ntot}}</td>
+        </tr>
+        <script>vno=vno+1</script>
+        {% endfor %}
+    </table>
+
+{% endblock %}

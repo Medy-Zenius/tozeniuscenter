@@ -1,0 +1,17 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+    <h3 align="center">DAFTAR SMA</h3>
+    <h4 align="center">Klik KODE untuk aksi lebih lanjut!</h4>
+    <form method="POST" action="/edit-sma-ppdb">
+    <table border="1" align="center">
+        <tr><td>NAMA SMA</td><td>Prediksi PG</td></tr>
+        {% for datum in data %}
+        <tr>
+          <td><button type="submit" name="nomer" value="{{datum.nomer}}">{{datum.sekolah}}</button></td>
+            <td>{{datum.nm}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </form>
+{% endblock %}

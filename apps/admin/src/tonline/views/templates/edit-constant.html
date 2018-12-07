@@ -1,0 +1,44 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+
+    <div class="container">
+      <form method="POST" action="/update-constant">
+      <div class="row">
+        <h4 class="text-primary">
+          Edit {{judul}} !
+        </h4>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <h5 class="text-right">{{label}}</h5>
+        </div>
+        <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="value" value="{{value}}" />
+           </div>
+        </div>
+        <div class="col-sm-7"></div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+           <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="KIRIM" />
+           </div>
+        </div>
+        <div class="col-sm-8"></div>
+      </div>
+      <input type="hidden" name="nama" value="{{nama}}" />
+      <input type="hidden" name="judul" value="{{judul}}" />
+    </form>
+    </div>
+
+
+
+
+
+{% endblock %}

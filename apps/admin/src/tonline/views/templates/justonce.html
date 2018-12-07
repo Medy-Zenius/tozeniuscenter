@@ -1,0 +1,33 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+    <h4>Status Hanya Boleh Sekali, Set Soal {{namakat}}</h4>
+    <h4>Kode Soal:{{datum.kode}} - {{datum.keterangan}}</h4>
+    <h4>Keterangan: 0 = Boleh berkali-kali test, 1 = Hanya boleh sekali test</h4>
+    <form method="POST" action="/update-justonce">
+
+      <div class="row">
+         <div class="col-sm-1">
+           <h5 class="text-right">Status Hanya Boleh Sekali</h5>
+         </div>
+         <div class="col-sm-2">
+           <div class="form-group">
+              <input type="text" class="form-control" name="justonce" value="{{datum.justonce}}">
+           </div>
+        </div>
+        <div class="col-sm-9"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2"></div>
+         <div class="col-sm-5">
+           <div class="form-group">
+              <input type="submit" value="UPDATE">
+           </div>
+        </div>
+        <div class="col-sm-5"></div>
+      </div>
+      <input type="hidden" name="kode" value="{{datum.kode}}" />
+      <input type="hidden" name="kkode" value="{{datum.kodekategori}}" />
+</form>
+{% endblock %}

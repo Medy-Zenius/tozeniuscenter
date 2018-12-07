@@ -1,0 +1,79 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+
+    <div class="container">
+      <div class="row">
+        <h4 class="text-primary">
+          EDIT SEKOLAH!
+        </h4>
+      </div>
+      <form method="POST" action="/update-sekolah">
+      <div class="row">
+         <div class="col-sm-2">
+           <h5 class="text-right">NPSN:</h5>
+         </div>
+         <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control"  name="npsn" value="{{datum.npsn}}">
+           </div>
+         </div>
+         <div class="col-sm-7"></div>
+      </div>
+      <div class="row">
+         <div class="col-sm-2">
+           <h5 class="text-right">Nama Sekolah:</h5>
+         </div>
+         <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="nama" value="{{datum.nama}}">
+           </div>
+         </div>
+         <div class="col-sm-7"></div>
+      </div>
+      <div class="row">
+         <div class="col-sm-2">
+           <h5 class="text-right">Alamat:</h5>
+         </div>
+         <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="alamat" value="{{datum.alamat}}">
+           </div>
+         </div>
+         <div class="col-sm-7"></div>
+      </div>
+      <div class="row">
+         <div class="col-sm-2">
+           <h5 class="text-right">Telpon:</h5>
+         </div>
+         <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="telpon" value="{{datum.telpon}}">
+           </div>
+         </div>
+         <div class="col-sm-7"></div>
+      </div>
+      <div class="row">
+         <div class="col-sm-2">
+           <h5 class="text-right">Email:</h5>
+         </div>
+         <div class="col-sm-3">
+           <div class="form-group">
+              <input type="text" class="form-control" name="email" value="{{datum.email}}">
+           </div>
+         </div>
+         <div class="col-sm-7"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+           <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="UPDATE"/>
+           </div>
+        </div>
+        <div class="col-sm-8"></div>
+      </div>
+      <input type="hidden" name="nomer" value="{{datum.nomer}}" />
+    </form>
+</div>
+{% endblock %}

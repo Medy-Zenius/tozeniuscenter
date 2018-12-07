@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USBK - Ujian Sekolah Berbasis Komputer</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.theme.css" rel="stylesheet"> -->
+    <link href="css/signin.css" rel="stylesheet">
+    <!-- <script src="jquery/jquery-1.12.2.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+    <script>
+      function kirim(x){
+      document.pf.email.value=document.getElementById('email').value;
+      document.pf.kode.value=x;
+      document.getElementById("pf").submit();
+      }
+    </script>
+  </head>
+  <body class="login-background">
+    <div align="center">
+       <img src="img/logo-zenpres.png">
+    </div>
+    <div class="container">
+      <div class="row">
+
+          <div class="panel panel-default panel-login middle-absolute">
+          <div class="col-xs-12">
+            <div class="panel-body">
+
+
+                <label for="inputEmail" class="sr-only">Input Email</label>
+                <input type="text" id="email"  class="form-control" placeholder="Email" required autofocus>
+                <br>
+                <button type="submit" class="btn btn-success" onClick="kirim(1)">Lupa Password</button>
+                <button type="submit" class="btn btn-success" onClick="kirim(2)">Lupa NIS</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div> <!-- /container -->
+    <form method="POST" id="pf" name="pf" action="/lupa-pw-nis">
+        <input type="hidden" name="kode" />
+        <input type="hidden" name="email" />
+    </form>
+    </body>
+  </html>

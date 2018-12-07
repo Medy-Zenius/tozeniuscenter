@@ -1,0 +1,38 @@
+{% extends "cbtonline/views/templates/basebg.html" %}
+
+{% block content %}
+
+    <style>
+      table {
+        background-color: #FFFFFF;
+      }
+      .bsubmit {
+        width: 80px;
+        background-color: #FFFFFF;
+        border-style: none;
+      }
+    </style>
+
+
+    <h2 align="center">HASIL TEST</h2>
+    <form method="POST" action="/detail-set">
+    <table border="1" align="center">
+        <tr>
+          <td>Tanggal</td>
+          <td>Kode Soal</td>
+          <td>Keterangan</td>
+          <td>Nilai</td>
+        </tr>
+        {% for datum in data %}
+        <tr>
+            <td><script>document.write('{{datum.stanggal}}'.substring(0,10))</script></td>
+            <!--
+               <td><input type="submit" class="bsubmit" name="kode" value="{{datum.kode}}" /></td>
+            -->
+            <td>{{datum.kode}}</td>
+            <td>{{datum.keterangan}}</td>
+            <td>{{datum.nilai}}</script></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

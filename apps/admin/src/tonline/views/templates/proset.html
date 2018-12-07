@@ -1,0 +1,33 @@
+{% extends "tonline/views/templates/base.html" %}
+
+{% block content %}
+
+ <h1>
+   {{nset}}
+</h1>
+<div>
+  <form method="POST" action="/get-soal">
+     <div class="row">
+        <div class="col-sm-2" align="right">
+          <h4><strong>Nomer Soal:</strong></h4>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <input type="text" class="form-control" name="nomer" value="{{nomer}}" />
+            <button type="submit">SUBMIT</button>
+          </div>
+        </div>
+        <div class="col-sm-9">
+
+        </div>
+      </div>
+      <input type="hidden" name="nset" value="{{nset}}" />
+      <input type="hidden" name="folder" value="{{folder}}" />
+  </form>
+</div>
+<div id="soal"></div>
+<script>
+    var address='proset/' + '{{folder}}' + '/soal/' + '{{nomer}}' + '.html';
+    loadXMLDoc(address);
+</script>
+{% endblock %}
