@@ -14,10 +14,10 @@
        (chome/home))
   (GET "/home" []
        (chome/home-login))
-  (GET "/registrasi-siswa" []
-       (chome/registrasi-siswa))
-  (POST "/registrasi-siswa" [npsn nis nama email pass pass1]
-        (chome/handle-sign-up-student npsn nis nama email pass pass1))
+  ;(GET "/registrasi-siswa" []
+  ;     (chome/registrasi-siswa))
+  ;(POST "/registrasi-siswa" [npsn nis nama email pass pass1]
+  ;      (chome/handle-sign-up-student npsn nis nama email pass pass1))
   (GET "/activation/:nis/:vcode" [nis vcode]
        (chome/handle-activation nis vcode))
 
