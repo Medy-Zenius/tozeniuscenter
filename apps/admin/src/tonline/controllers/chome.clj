@@ -376,6 +376,8 @@
         max-row (read-string (:value (getdata/constant "max-row")))
         data (getdata/hasil-proset kode npsn kelas (inc max-row) 0)
         cdata1 (count data)
+        kunci (filterv #(not (or (= \space %) (= \[ %) (= \] %) (= \" %))) (:kunci mdata))
+        jawaban (filterv #(not (or (= \space %) (= \[ %) (= \] %) (= \" %))) (:jawaban data))
         ]
     ;(println data)
     (if (= mode 1)
@@ -386,6 +388,9 @@
                                                 :npsn npsn
                                                 :kelas kelas
                                                 :keterangan keterangan
+                                                :kunci (:kunci mdata)
+                                                :countkunci (count kunci)
+                                                :jawaban (:jawaban data)
                                                 })
            (let [cdata (:total (getdata/total-hasil-proset kode npsn kelas))
                  data0 (butlast data)]
@@ -395,6 +400,9 @@
                                                         :npsn npsn
                                                         :kelas kelas
                                                         :keterangan keterangan
+                                                        :kunci (:kunci mdata)
+                                                        :countkunci (count kunci)
+                                                        :jawaban (:jawaban data)
                                                         :cdata cdata
                                                         :page 0
                                                         :maxi max-row})))

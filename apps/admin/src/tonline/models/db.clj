@@ -3,7 +3,7 @@
 
 (def db
 {:subprotocol "postgresql"
-:subname "//localhost:5432/tonline"
+:subname "//wf-103-44-220-83.webfaction.com:5432/tonline"
 :user "tonline"
 :password "tonline2000"})
 

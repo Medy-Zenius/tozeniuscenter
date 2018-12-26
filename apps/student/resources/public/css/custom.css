@@ -236,10 +236,46 @@
 	font-size:0px;
 }
 
+
+
 /*MEDIA QUERY*/
 
-@media (min-width: 768px) {
+@media (min-width: 1084px) {
+    .logo-masukkampus {
+	position: absolute;
+	left: 100px;
+	top: 144px;
+	}
+}
+
+@media (min-width: 768px) and (max-width:1083px) {
     .lstore-alert {
 		margin-top:200px;
 	}
+
+	.logo-masukkampus {
+    	position: absolute;
+		top: 705px;
+		width: 100%;
+    }
+
+    .logo-masukkampus img{
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .logo-masukkampus {
+    	position: absolute;
+		top: 528px;
+		width: 100%;
+    }
+
+    .logo-masukkampus img{
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+    }
 }
