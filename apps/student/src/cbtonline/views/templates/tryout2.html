@@ -333,6 +333,10 @@
         document.getElementById("next_button").disabled=bol;
         document.getElementById("sls_button").disabled=bol;
         document.getElementById("sel_no").disabled=bol;
+        $('#ans-table tr td a').attr("disabled", bol);
+        if(bol){
+          $('#ans-table tr td a').attr("onclick", "");
+        } 
     }
 
     function selesai(){
@@ -386,6 +390,9 @@
            wDOM('ya_button',"");
            wDOM('no_button',"");
         }else {
+           wDOM('pesan', '<span class="bg-success text-success"> Data telah disimpan di server. Silahkan Logout. </span>');
+           wDOM('mod-content', '<span class="bg-success text-success"> Data telah disimpan di server. Silahkan Logout. </span>');
+           /*
            var snilai = vdata.nilai/vdata.skala * 100;
 
            wDOM('pesan', '<span class="bg-success text-success"> Data telah disimpan di server. Nilai Ujian Kamu: <b id="snilai">'+vdata.nilai+'</b>   </span>');
@@ -419,6 +426,7 @@
               document.getElementById('silver').setAttribute('style','animation-name: star-ex; animation-duration: 0.6s; animation-delay: 1.6s; animation-fill-mode: forwards;');
               document.getElementById('gold').setAttribute('style','animation-name: star-ex2; animation-duration: 0.6s; animation-delay: 2.1s; animation-fill-mode: forwards;');
            }
+           */
 
            wDOM('ya_button',vby);
            wDOM('no_button','');
