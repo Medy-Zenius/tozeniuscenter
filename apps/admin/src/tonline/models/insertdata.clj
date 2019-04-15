@@ -21,8 +21,8 @@
                    :polaacak (str (vec (range 1 (inc vjsoal))))
                    :status "0"
                    :skala 100
-                   :nbenar 4
-                   :nsalah -1
+                   :nbenar 1
+                   :nsalah 0
                    :justonce "0"
                    :kodex (share/create-kode 32)})))
 
