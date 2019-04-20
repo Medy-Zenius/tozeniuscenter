@@ -333,6 +333,7 @@
                                     (= (data :golongan) "1") "tryout1.html"
                                     (= (data :golongan) "2") "tryout1.html"
                                     :else "tryout3.html")
+                             user (session/get :user)
                              ]
                             ;(println nsoal)
                             (layout/render page {:data data
@@ -344,6 +345,7 @@
                                                  :kodeto kodeto
                                                  :kkode kkode
                                                  :path path}
+                                                 :user user
                                                  ))
                        (layout/render "pesan.html" {:pesan (str "Kamu sudah pernah mengerjakan TO dengan kode " kodeto " ini!")}))
                      (layout/render "kode1.html" {:error "Paket Soal dengan kode tersebut tidak ada!" :kodeto kodeto}))

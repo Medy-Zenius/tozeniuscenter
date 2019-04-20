@@ -17,13 +17,29 @@
     <h3 align="center">{{keterangan}} - kode {{kode}} - {{namakat}}</h3>
 
     <table border="1" align="center">
-        <tr><td>NIS</td><td>NAMA</td><td>NPSN</td><td>NILAI</td></tr>
+        <tr>
+          <td rowspan="2" align="center">NIS</td>
+          <td rowspan="2" align="center">NAMA</td>
+          <td rowspan="2" align="center">NPSN</td>
+          <td rowspan="2" align="center">KELAS</td>
+          <td rowspan="2" align="center">NILAI</td>
+          <td align="center" colspan="{{countkunci}}">Kunci</td>
+        </tr>
+        <tr>
+          {% for kunc in kunci|remove:\"[] \" %}
+          <td align="center">{{kunc}}</td>
+          {% endfor %}
+        </tr>
         {% for datum in data %}
         <tr>
-            <td><input type="submit" name="nis" value="{{datum.nis}}" /></td>
+            <td>{{datum.nis}}</td>
             <td>{{datum.name}}</td>
             <td>{{datum.npsn}}</td>
+            <td>{{datum.kelas}}</td>
             <td>{{datum.nilai}}</td>
+            {% for jaw in datum.jawaban|remove:\"[] \" %}
+            <td align="center">{{jaw}}</td>
+            {% endfor %}
         </tr>
         {% endfor %}
     </table>

@@ -158,7 +158,14 @@
 	margin-left:3px;
 }
 
-.
+.n-active.answered {
+    background-color: #77b2a8 !important;
+}
+
+.profpanel {
+	height: 300px;
+    margin-right: 30px;
+}
 
 /*ARROW*/
 .arrow-up {
