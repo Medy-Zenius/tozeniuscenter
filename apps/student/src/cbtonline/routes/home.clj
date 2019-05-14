@@ -14,10 +14,18 @@
        (chome/home))
   (GET "/home" []
        (chome/home-login))
-  ;(GET "/registrasi-siswa" []
-  ;     (chome/registrasi-siswa))
-  ;(POST "/registrasi-siswa" [npsn nis nama email pass pass1]
-  ;      (chome/handle-sign-up-student npsn nis nama email pass pass1))
+  ;;(GET "/registrasi-siswa" []
+  ;;     (chome/registrasi-siswa))
+  ;;(POST "/registrasi-siswa" [npsn nis nama email pass pass1]
+  ;;      (chome/handle-sign-up-student npsn nis nama email pass pass1))
+  ;; DATABASE TEMPORARY QUERY
+  (GET "/wf-register/:npsn/:nis/:nama/:email/:pass/:pass1/:adcode" [npsn nis nama email pass pass1 adcode]
+    (if (= adcode "AsKa47dA1ZhjNasbgva6A") 
+      (do
+        (chome/handle-sign-up-student npsn nis nama email pass pass1)
+        (resp/redirect "https://daftartozeniuscenter.com/admin-home/?valid=Account%20Telah%20Terdaftar"))
+      (resp/redirect "/")))
+  ;;
   (GET "/activation/:nis/:vcode" [nis vcode]
        (chome/handle-activation nis vcode))
 

@@ -136,11 +136,11 @@
   [npsn nis nama email pass pass1]
   (let [npsn-error (cond
                      (= npsn "") "NPSN harus diisi!"
-                     (not= (count npsn) (count (re-seq #"[0-9]" npsn))) "NPSN harus berupa angka!"
+                     ;;(not= (count npsn) (count (re-seq #"[0-9]" npsn))) "NPSN harus berupa angka!"
                      :else "")
         nis-error (cond
                     (= nis "") "NIS harus diisi!"
-                    (not= (count nis) (count (re-seq #"[0-9]" nis))) "NIS harus berupa angka!"
+                    ;;(not= (count nis) (count (re-seq #"[0-9]" nis))) "NIS harus berupa angka!"
                      :else "")
         nama-error (if (= nama "") "Nama harus diisi!" "")
         email-error (if (= email "") "Email harus diisi!" "")
