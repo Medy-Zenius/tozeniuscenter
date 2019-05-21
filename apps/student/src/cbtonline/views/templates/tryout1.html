@@ -311,7 +311,7 @@
           var vby='<button class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-sm" onClick="simpan()">KIRIM</button>';
           var vbn='<a href="/"><button class="btn btn-warning">BATAL</button></a>';
           taktif(true);
-          wDOM('pesan','<span class="bg-danger text-danger">Waktu Habis !</span><br><span class="bg-warning text-warning">Klik tombol KIRIM untuk mengirim jawaban ke server, atau BATAL jika tidak mau mengirim ke server!</span><br>');
+          wDOM('pesan','<span class="bg-danger text-danger">Waktu Habis, anda tidak bisa mengisi soal lagi, silahkan kirim jawaban!</span><br><span class="bg-warning text-warning">Klik tombol KIRIM untuk mengirim jawaban ke server, atau BATAL jika tidak mau mengirim ke server!</span><br>');
           wDOM('ya_button',vby);
           wDOM('no_button',vbn);
           }
@@ -338,10 +338,29 @@
           }
           }
           function taktif(bol){
-          document.getElementById("back_button").disabled=bol;
-          document.getElementById("next_button").disabled=bol;
-          document.getElementById("sls_button").disabled=bol;
-          document.getElementById("sel_no").disabled=bol;
+            document.getElementById("back_button").disabled=bol;
+            document.getElementById("next_button").disabled=bol;
+            document.getElementById("sls_button").disabled=bol;
+            document.getElementById("sel_no").disabled=bol;
+            document.getElementById("ans-A").disabled=bol;
+            document.getElementById("ans-B").disabled=bol;
+            document.getElementById("ans-C").disabled=bol;
+            document.getElementById("ans-D").disabled=bol;
+            document.getElementById("ans-E").disabled=bol;
+            document.getElementById("ans--").disabled=bol;
+            $("#ans-A").attr("onclick", "");
+            $("#ans-B").attr("onclick", "");
+            $("#ans-C").attr("onclick", "");
+            $("#ans-D").attr("onclick", "");
+            $("#ans-E").attr("onclick", "");
+            $("#ans--").attr("onclick", "");
+            document.getElementById("fnext-btn").disabled=bol;
+            document.getElementById("fback-btn").disabled=bol;
+            $("#fnext-btn").attr("onclick", "");
+            $("#fback-btn").attr("onclick", "");
+            for (i=1;i<=jsoal;i++){
+              $("#n"+ i +" > a").attr("onclick", "");
+            }
           }
           function selesai(){
           var vby='<button class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm" onClick="simpan()">YA</button>';
@@ -376,7 +395,8 @@
           //vurl="/tm-simpan/"+'{{kodeto}}'+"/"+vjwb+"/"+vnis;
           vurl="/tm-simpan";
           taktif(true);
-          wDOM('pesan','<span class="bg-warning text-warning"> Tunggu.... lagi memproses data ! </span>');
+          wDOM('pesan','<span class="bg-warning text-warning"> Tunggu.... sedang memproses data ! </span>');
+          wDOM('mod-content','<span class="bg-warning text-warning"> Tunggu.... sedang memproses data ! </span>');
           get_resp(vurl,vjwb,res_pesan);
           //wDOM('title',vjwb);
           }
@@ -392,6 +412,7 @@
           }else {
           var snilai = vdata.nilai/vdata.skala * 100;
           wDOM('pesan', '<span class="bg-success text-success"> Data telah tersimpan! Silahkan logout!   </span>');
+          wDOM('mod-content', '<span class="bg-success text-success"> Data telah tersimpan! Silahkan logout!   </span>');
           //var nres = '<div><b id="snilaim">'"</b></div>";
           //document.getElementById("mod-content").innerHTML = nres;
           counter(vdata.nilai, vdata.skala);
@@ -478,7 +499,7 @@
                     <div class="row">
                       <div class="nomtable center">
                         
-                        <a href ="#" class="arrow-left pull-left" onClick="fback()"></a>
+                        <a href ="#" id="fback-btn" class="arrow-left pull-left" onClick="fback()"></a>
                         <table id="ans-table" class="answer-table pull-left">
                           <script>
                           var rlimit = 5;
@@ -499,7 +520,7 @@
                         }
                         </script>
                       </table>
-                      <a href ="#" class="arrow-right pull-left" onClick="fnext()"></a>
+                      <a href ="#" id="fnext-btn" class="arrow-right pull-left" onClick="fnext()"></a>
                       
                     </div>
                   </div>
