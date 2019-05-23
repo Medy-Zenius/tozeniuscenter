@@ -296,21 +296,28 @@
             document.getElementById("ans-A").disabled=bol;
             document.getElementById("ans-B").disabled=bol;
             document.getElementById("ans-C").disabled=bol;
-            document.getElementById("ans-D").disabled=bol;
-            document.getElementById("ans-E").disabled=bol;
+            document.getElementById("ans-D").disabled=bol;         
             document.getElementById("ans--").disabled=bol;
-            $("#ans-A").attr("onclick", "");
-            $("#ans-B").attr("onclick", "");
-            $("#ans-C").attr("onclick", "");
-            $("#ans-D").attr("onclick", "");
-            $("#ans-E").attr("onclick", "");
-            $("#ans--").attr("onclick", "");
+            
             document.getElementById("fnext-btn").disabled=bol;
             document.getElementById("fback-btn").disabled=bol;
-            $("#fnext-btn").attr("onclick", "");
-            $("#fback-btn").attr("onclick", "");
-            for (i=1;i<=jsoal;i++){
+            
+            
+            if(bol === true){
+              $("#ans-A").attr("onclick", "");
+              $("#ans-B").attr("onclick", "");
+              $("#ans-C").attr("onclick", "");
+              $("#ans-D").attr("onclick", "");
+                $("#ans--").attr("onclick", "");
+              $("#fnext-btn").attr("onclick", "");
+              $("#fback-btn").attr("onclick", "");
+              for (i=1;i<=jsoal;i++){
               $("#n"+ i +" > a").attr("onclick", "");
+              }
+            }
+            if(document.getElementById("ans-E")){
+              document.getElementById("ans-E").disabled=bol;
+              $("#ans-E").attr("onclick", "");
             }
           }
           function selesai(){
