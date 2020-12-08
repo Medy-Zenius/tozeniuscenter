@@ -8,11 +8,17 @@
     <table border="1" align="center"  name="hasilTo" id="hasilTo">
 
         <tr>
-          <td align="center">NIS</td>
-          <td align="center">NAMA</td>
-          <td align="center">NPSN</td>
-          <td align="center">KELAS</td>
-          <td align="center">NILAI</td>
+          <td rowspan="2" align="center">NIS</td>
+          <td rowspan="2" align="center">NAMA</td>
+          <td rowspan="2" align="center">NPSN</td>
+          <td rowspan="2" align="center">KELAS</td>
+          <td rowspan="2" align="center">NILAI</td>
+          <td align="center" colspan="{{countkunci}}">Kunci</td>
+        </tr>
+        <tr>
+          {% for kunc in kunci|remove:\"[] \" %}
+          <td align="center">{{kunc}}</td>
+          {% endfor %}
         </tr>
 
         {% for datum in data %}
@@ -22,6 +28,9 @@
             <td>{{datum.npsn}}</td>
             <td>{{datum.kelas}}</td>
             <td>{{datum.nilai}}</td>
+            {% for jaw in datum.jawaban|remove:\"[] \" %}
+            <td align="center">{{jaw}}</td>
+            {% endfor %}
         </tr>
         {% endfor %}
     </table>

@@ -86,7 +86,7 @@
   (db/get-data (str "select keterangan,jsoal,kunci from proset where kode='" kode "'") 1))
 
 (defn hasil-proset [kode npsn kelas max-row offset]
-  (db/get-data (str "select name,users.nis as nis,npsn,kelas,nilai from users INNER JOIN datato
+  (db/get-data (str "select name,users.nis as nis,npsn,kelas,nilai,jawaban from users INNER JOIN datato
                    ON users.nis=datato.nis where kode='" kode "' and
                     npsn LIKE '" npsn "%' and kelas LIKE '" kelas "%' order by nilai desc
                     LIMIT " max-row " OFFSET " offset) 2))
